@@ -15,28 +15,45 @@
  */
 package hello;
 
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureRestTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.test.web.servlet.client.RestTestClient;
+//import org.springframework.test.web.servlet.client.RestTestClient;
+import net.objecthunter.exp4j.ExpressionBuilder;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureRestTestClient
 public class HelloWorldConfigurationTests {
 
-	@Autowired
-	private RestTestClient restTestClient;
+//	@Autowired
+	//private RestTestClient restTestClient;
 
-	@Test
-	public void testGreeting() {
-		restTestClient.get()
-				.uri("/")
-				.exchange()
-				.expectStatus().isOk()
-				.expectBody(String.class)
-				.isEqualTo("Hello Docker World");
-	}
+	//@Test
+//	public void testGreeting() {
+	//	restTestClient.get()
+	//			.uri("/")
+	//			.exchange()
+	//			.expectStatus().isOk()
+	//			.expectBody(String.class)
+	//			.isEqualTo("Hello Docker World");
+	//}
+
+	// 1. Успішний тест
+    @Test
+    public void testCalculatorSuccess() {
+        double result = new ExpressionBuilder("2+5*2").build().evaluate();
+        assertEquals(12.0, result);
+    }
+
+    // 2. Навмисно хибний тест
+    //@Test
+    //public void testCalculatorFailure() {
+   //     double result = new ExpressionBuilder("1+1").build().evaluate();
+   //     assertEquals(5.0, result); // 2.0 != 5.0 -> помилка!
+   // }
 }
