@@ -51,9 +51,9 @@ public class HelloWorldConfigurationTests {
     }
 
     // 2. Навмисно хибний тест
-    //@Test
-    //public void testCalculatorFailure() {
-   //     double result = new ExpressionBuilder("1+1").build().evaluate();
-   //     assertEquals(5.0, result); // 2.0 != 5.0 -> помилка!
-   // }
+    @Test
+    public void testCalculatorFailure() {
+        double result = new ExpressionBuilder("1+1").build().evaluate();
+        assertEquals(5.0, result); // 2.0 != 5.0 -> помилка!
+    }
 }
